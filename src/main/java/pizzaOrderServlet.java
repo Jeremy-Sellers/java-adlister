@@ -27,6 +27,7 @@ public class pizzaOrderServlet extends HttpServlet {
         request.setAttribute("size",size);
         request.setAttribute("toppings",toppings);
         request.setAttribute("address",address);
+        //passes the flow of control from servlet to jsp
         request.getRequestDispatcher("/pizza-order.jsp").forward(request,response);
     }
 }
