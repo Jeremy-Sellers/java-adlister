@@ -20,6 +20,9 @@ public class AuthorsServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        String author_name = request.getParameter("author_name");
+        Authors authorsDao = DaoFactory.getAuthorsDao();
+        authorsDao.insert(new Author(0,author_name));
+        response.sendRedirect("/authors");
     }
 }
