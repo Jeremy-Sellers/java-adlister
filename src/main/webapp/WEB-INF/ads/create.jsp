@@ -7,6 +7,8 @@
 </head>
 <body>
 <div class="container">
+<%--Once a new form is submitted, a new ad will be created--%>
+<%--Pairs with CreateAdServlet--%>
     <h1>Create a new Ad</h1>
     <form action="/ads/create" method="post">
         <div class="form-group">

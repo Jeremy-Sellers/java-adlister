@@ -26,6 +26,7 @@ public class AuthorsDao  implements Authors{
 
     @Override
     public List<Author> all() {
+        //List to store Author objects called author
         List<Author> authors = new ArrayList<>();
         try {
             Statement statement = connection.createStatement();

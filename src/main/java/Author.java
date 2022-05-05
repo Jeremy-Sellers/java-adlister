@@ -3,6 +3,7 @@ import java.io.Serializable;
 public class Author implements Serializable {
     private long id;
     private String author_name;
+
     public Author(){
     }
 

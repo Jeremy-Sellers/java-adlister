@@ -9,10 +9,9 @@ public class AuthorsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //Create a new Dao that creates connection and gets driver loaded
-        Authors authorsDao = new AuthorsDao();
+        Authors authorsDao = DaoFactory.getAuthorsDao();
         //returns arrayList of author objects
         List<Author> authors = authorsDao.all();
-        //
         request.setAttribute("authors",authors);
         //forward request object to view
         request.getRequestDispatcher("/WEB-INF/quotes/authors.jsp").forward(request,response);
