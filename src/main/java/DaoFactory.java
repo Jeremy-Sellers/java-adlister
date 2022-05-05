@@ -1,3 +1,5 @@
+import com.codeup.adlister.dao.Config;
+
 public class DaoFactory {
     private static Ads adsDao;
     private static Authors authorsDao;
@@ -6,7 +8,7 @@ public class DaoFactory {
 
     public static Ads getAdsDao() {
         if (adsDao == null) {
-            adsDao = new ListAdsDao();
+            adsDao = new MySQLAdsDao(config);
         }
         return adsDao;
     }

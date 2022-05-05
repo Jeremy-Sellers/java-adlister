@@ -1,3 +1,4 @@
+import com.codeup.adlister.dao.Config;
 import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
@@ -30,7 +31,7 @@ public class QuotesDao implements Quotes{
             ResultSet rs = statement.executeQuery("SELECT * FROM codeup_test_db.quotes");
             while (rs.next()){
                 int author_id = rs.getInt("author_id");
-                Authors authorsDao = new AuthorsDao();
+                Authors authorsDao =  DaoFactory.getAuthorsDao();
                 Author quoteAuthor = authorsDao.getAuthorById(author_id);
                 Quote quote = new Quote(
                         rs.getLong("id"),

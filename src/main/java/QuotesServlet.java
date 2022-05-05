@@ -8,7 +8,7 @@ import java.util.List;
 public class QuotesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Quotes quotesDao = new QuotesDao();
+        Quotes quotesDao = DaoFactory.getQuotesDao();
         List<Quote> quotes = quotesDao.all();
 
         request.setAttribute("quotes",quotes);
