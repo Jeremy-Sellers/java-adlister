@@ -38,11 +38,20 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    //Refactor to use prepared statements
+    //Refactor your MySQLAdsDao to use prepared statements. Test these changes and ensure everything still works.
     @Override
     public Long insert(Ad ad) {
+        String query = "INSERT INTO ads(user_id, title,description) VALUES (?,?,?)";
+
         try {
-            Statement stmt = connection.createStatement();
-            stmt.executeUpdate(createInsertQuery(ad), Statement.RETURN_GENERATED_KEYS);
+            //Prepared statement
+            PreparedStatement stmt = connection.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1,ad.getUserId());
+            stmt.setString(2,ad.getTitle());
+            stmt.setString(3,ad.getDescription());
+            //Prepared statement
+            stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
             return rs.getLong(1);

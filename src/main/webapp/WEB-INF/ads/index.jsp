@@ -9,6 +9,7 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
+<%--Connected with AdsIndexServlet--%>
 <div class="container">
     <h1>Here Are all the ads!</h1>
 

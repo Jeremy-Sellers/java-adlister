@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -7,6 +8,11 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+
+    <c:if test="${success}">
+        <h3>Successfully created user account</h3>
+    </c:if>
+
     <div class="container">
         <h1>Please Log In</h1>
         <form action="/login" method="POST">
